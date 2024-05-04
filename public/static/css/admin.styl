@@ -1,0 +1,237 @@
+body
+    background-color rgb(228, 223, 223)
+    font-size 14px
+    font-family 'Roboto', sans-serif
+
+h2,h3,h4,h5,ul,body,html
+    padding 0
+    margin 0
+
+.form-control
+    &:focus
+        box-shadow none
+        outline none
+a
+    text-decoration none
+    &:hover
+        text-decoration none
+
+.wrapper
+    min-height 100vh
+    overflow hidden
+    .col1
+        float left
+        position relative
+        z-index 999
+        width 17%
+    .col2
+        float left
+        width 83%
+
+.sidebar
+    background-color white
+    min-height 100vh
+    .section-top
+        background-color red
+        box-shadow 0 0.5rem 1rem rgba(0,0,0, 0.15)
+        .logo
+            display block
+            margin 0px auto
+            padding-top 24px
+            width 60%
+        .user
+            color white !important
+            padding 16px
+            a
+                color white
+                font-size  1.2em
+
+    .main
+        display block
+        margin-top 8px
+        ul
+            li
+                margin-bottom 4px
+                a
+                    color red !important
+                    display block
+                    font-size 1.1em
+                    padding 12px 16px
+                    i
+                        margin-right 10px
+                    &:hover
+                        background red
+                        color white !important
+                        text-decoration none
+                        box-shadow 0 0.5rem 1rem rgba(0,0,0, 0.15)
+                a.active
+                    background red
+                    color white !important
+                    text-decoration none
+                    box-shadow 0 0.5rem 1rem rgba(0,0,0, 0.15)
+
+.navbar
+
+.navbar
+    background-color red
+    a
+        color white !important
+
+.page
+    padding-top 16px
+    padding-bottom 16px
+    .breadcrumb
+        background-color white
+        box-shadow 0 0.5rem 0.5rem rgba(0,0,0, 0.10)
+        padding 10px
+
+        .breadcrumb.item
+            a
+                color red
+                &:hover
+                    text-decoration none !important
+                    color rgb(163, 0, 0)
+    .panel
+        background-color white
+        border-radius 5px
+        border-bottom 2px solid red
+        width 100%
+        .header
+            border-bottom 1px solid red
+            h2.title
+                display inline-block
+                color red
+                font-size 1.1em
+                padding 12px 16px
+            ul
+                display inline-block
+                float right
+                margin-right 12px
+                li
+                    display inline-block
+                    a
+                        display inline-block
+                        position relative
+                        padding 12px
+                        color red
+                        text-decoration none !important
+                        &:hover
+                            border-radius 10px
+                            background-color red
+                            color white
+                            text-decoration none
+                            i
+                                color white
+                        i
+                            color red
+                    ul
+                        background-color white
+                        border 1px solid white
+                        display none
+                        float none
+                        position absolute
+                        right 20px
+                        width 200px
+                        li
+                            display inline-block
+                            border-bottom 1px solid white
+                            width 100%
+                            &:last-child
+                                border-bottom 0px
+                            a
+                               display block
+
+                    &:hover
+                        ul
+                            display block
+
+
+        .inside
+            padding 16px
+            .nav
+                .nav-link
+                    border 1px solid red
+                    margin-right 8px
+                    color red
+                    &:hover
+                        background-color red
+                        color white
+            .form_search
+                display none
+                margin-bottom 16px
+                .btn
+                    width 100%
+        .big_count
+            display block
+            text-align center
+            width 100%
+            font-size 2em
+.options
+    a
+        border-radius 4px
+        border 1px solid #ddd
+        display inline-block
+        padding 8px 12px
+        color red
+.mt16
+    margin-top 16px
+
+.product_gallery
+    overflow hidden
+    .btn-submit
+        margin-right 2%
+        display block
+        width 100%
+        a
+            display block
+            border-radius 4px
+            color red
+            border 1px dashed
+            text-align center
+            font-size 2em
+            padding 16px
+            width 100%
+            &:hover
+                background-color red
+                color white
+    .tumbs
+        overflow hidden
+        .tumb
+            float left
+            margin-top 16px
+            position relative
+            width 48%
+            a
+                background-color rgba(0, 0, 0, 0.5);
+                color white
+                padding 6px 10px
+                border-radius 50%
+                display inline-block
+                position absolute
+                top 6px
+                right 6px
+
+            img
+                border-radius 4px
+                width 100%
+            &:nth-child(odd)
+                margin-right 4%
+.page_user
+    .mini_profile
+        .avatar
+            width 150px
+            display block
+            margin 0px auto
+            border-radius 50%
+        .info
+            background-color white
+            span
+                display block
+                font-size 1.1em
+
+                width 100%
+            span.title
+                font-weight bold
+                margin-top 16px
+        .btn
+            width 100%

@@ -1,0 +1,149 @@
+color1 = red
+body
+    background-color #f9f9f9
+    font-size 14px
+    font-family 'Roboto' , sans-serif
+
+*
+
+
+a
+.btn
+    &:active
+    &:focus
+        box-shadow none
+        outline none
+
+
+.mt32
+    margin-top 32px
+.mt16
+    margin-top 16px
+
+.form-control
+    &:active
+    &:hover
+        box-shadow none  !important
+        outline none
+nav
+    background-color white
+    border-bottom 2px solid red
+    .navbar-brand
+        img
+           width 50px
+    .navbar-nav
+        li.nav-item
+            a.nav-link
+                border 1px solid white
+                border-radius 4px
+                color #000
+                font-size .9em
+                font-weight bold
+                margin-right 4px
+                padding 5px 16px !important
+                &:hover
+                    color red
+            a.btn
+                border 1px solid red
+                background-color white
+                color red
+                &:hover
+                    background-color red
+                    color white
+
+            ul.dropdown-menu
+                border-radius 0px 0px 4px 4px
+                border 1px solid red
+                top 150% !important
+        li.link-acc
+            img
+                width 24px
+                position relative
+                top -1px
+                margin-right 6px
+                border-radius 50%
+        li.link-user
+            overflow initial
+            a
+                border 0px !important
+                &:hover
+                    color black !important
+                    background-color transparent !important
+.wrapper
+    .panel
+        background-color white
+        border-radius 6px
+        border-bottom 2px solid red
+        width 100%
+        padding 10px
+        .header
+            border-bottom 1px solid red
+            h2.title
+                display inline-block
+                color red
+                font-size 1.1em
+                margin-bottom 0px
+                padding 12px 16px
+            ul
+                display inline-block
+                float right
+                margin-right 12px
+                li
+                    display inline-block
+                    position relative
+                    a
+                        color #333
+                        display inline-block
+                        padding 10px
+                        &:hover
+                            border-radius 10px
+                            background-color red
+                            color white
+                            text-decoration none
+                            i
+                                color white
+                        i
+                            color red
+                    ul
+                        background-color white
+                        border 1px solid white
+                        display none
+                        float none
+                        position absolute
+                        right 20px
+                        width 200px
+                        li
+                            display inline-block
+                            border-bottom 1px solid white
+                            width 100%
+                            &:last-child
+                                border-bottom 0px
+                            a
+                               display block
+                               width value
+
+                    &:hover
+                        ul
+                            display block
+
+
+        .inside
+            padding 16px
+            .nav
+                .nav-link
+                    border 1px solid red
+                    margin-right 8px
+                    color red
+                    &:hover
+                        background-color red
+                        color white
+            .form_search
+                display none
+                margin-bottom 16px
+                .btn
+                    width 100%
+        .big_count
+            display block
+            text-align center
+            width 100%
+            font-size 2em
