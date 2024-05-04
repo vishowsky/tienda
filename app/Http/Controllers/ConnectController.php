@@ -11,6 +11,7 @@ use App\Mail\UserSendNewPassword;
 use Malahierba\ChileRut\ChileRut;
 use Malahierba\ChileRut\Rules\ValidChileanRut;
 
+
 class ConnectController extends Controller
 {
     public function __construct()
