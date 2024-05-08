@@ -16,7 +16,8 @@
         "laravel/socialite": "^5.12",
         "laravel/tinker": "^2.5",
         "laravelcollective/html": "^6.4",
-        "malahierba-lab/chile-rut": "5.1.*"
+        "malahierba-lab/chile-rut": "5.1.*",
+        "vishowsky/rutvalidator": "^1.1"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.7",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8f60f1dd92ef6be587efc662b4e60ba8",
+    "content-hash": "40b5cacd8b83a0a2134d1f8687edf482",
     "packages": [
         {
             "name": "brick/math",
@@ -5347,6 +5347,41 @@
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/v2.2.7"
             },
             "time": "2023-12-08T13:03:43+00:00"
+        },
+        {
+            "name": "vishowsky/rutvalidator",
+            "version": "1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vishowsky/laravel-rut-validator.git",
+                "reference": "1628ec9bd4ee347cc2384c3a983b6e12c82ae9a0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vishowsky/laravel-rut-validator/zipball/1628ec9bd4ee347cc2384c3a983b6e12c82ae9a0",
+                "reference": "1628ec9bd4ee347cc2384c3a983b6e12c82ae9a0",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3|^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "App\\": "app/",
+                    "Libraries\\": "app/Libraries/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Librería de validación de RUT para Laravel",
+            "support": {
+                "issues": "https://github.com/vishowsky/laravel-rut-validator/issues",
+                "source": "https://github.com/vishowsky/laravel-rut-validator/tree/v1.1"
+            },
+            "time": "2024-05-07T22:58:51+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
