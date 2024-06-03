@@ -44,7 +44,7 @@
                     {!! Form::open(['url' => '/admin/product/search']) !!}
                     <div class="row">
                         <div class="col-md-4">
-                            {!! Form::text('search', null, ['class' => 'form-control', 'placeholder' => 'Buscar']) !!}
+                            {!! Form::text('search', null, ['class' => 'form-control', 'placeholder' => 'Buscar','required']) !!}
                             </div>
                             <div class="col-md-4">
                                 {!! Form::select('filter', ['0' => 'Nombre del producto', '1' => 'SKU'], 0, ['class' => 'form-control']) !!}

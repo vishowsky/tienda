@@ -1,5 +1,6 @@
 @extends('master')
 @section('title', 'Editar mi perfil')
+
 @section('content')
     <div class="row mt32">
         <div class="col-md-4">
@@ -13,16 +14,17 @@
                     <div class="edit_avatar">
                         {!! Form::open(['url' => 'account/edit/avatar', 'id' => 'form_avatar_change' ,'files' => true]) !!}
                         <a href="#" id="btn_avatar_edit">
-                            <div class="overlay">
+                            <div class="overlay" id="avatar_change_overlay">
                                 <i class="fas fa-camera"></i>
                             </div>
                             @if (is_null(Auth::user()->avatar))
                                 <img src="{{ url('/static/images/default-avatar.png') }}">
                             @else
-                                <img src="{{ url('/static/images/default-avatar.png') }}">
+                                <img src="{{ url('/uploads_users/'.Auth::id().'/av_'.Auth::user()->avatar) }}">
                             @endif
                         </a>
-                        {!! Form::file('avatar',['id' => 'input_file_avatar','class' => 'form-control']) !!}
+                        {!! Form::file('avatar',['id' => 'input_file_avatar','accept' => 'image/*',
+                        'class' => 'form-control']) !!}
                         {!! Form::close() !!}
                     </div>
                 </div>
@@ -37,7 +39,7 @@
                     </h2>
                 </div>
                 <div class="inside">
-                    {!! Form::open(['url' => '/acocunt/edit/password']) !!}
+                    {!! Form::open(['url' => '/account/edit/password']) !!}
                     <div class="row">
                         <div class="col-md-12">
                             <label for="apassword">Contraseña Actual</label>
@@ -72,21 +74,15 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="row mt16">
                         <div class="col-md-12">
-
-                            {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
-
+                            {!! Form::submit('Actualizar contraseña', ['class' => 'btn btn-primary']) !!}
                         </div>
                     </div>
                     {!! Form::close() !!}
                 </div>
             </div>
-
         </div>
-
-
         <div class="col-md-8">
             <div class="panel shadow">
                 <div class="header">
@@ -165,6 +161,7 @@
                         <div class="col-md-12">
 
                             {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
+
                         </div>
                     </div>
                 </div>
@@ -176,4 +173,5 @@
     </div>
 
     </div>
+
 @endsection

@@ -38,6 +38,9 @@
                     <thead>
                         <tr>
                             <td>ID</td>
+                            <td>
+                                avatar
+                            </td>
                             <td>Nombre</td>
                             <td>Correo</td>
                             <td>Rut</td>
@@ -51,6 +54,14 @@
 
                         <tr>
                             <td>{{ $user->id }}</td>
+                            <td width="48" >
+                                @if (is_null($user->avatar))
+                                <img class="img-fluid rounded-circle" src="{{ url('/static/images/default-avatar.png') }}">
+                            @else
+                                <img class="img-fluid rounded-circle"
+                                    src="{{ url('/uploads_users/'.$user->id.'/av_'.$user->avatar) }}" >
+                            @endif
+                            </td>
                             <td>{{ $user->name }} {{ $user->lastname }}</td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->rut }}</td>

@@ -60,6 +60,11 @@ return [
 
         ],
 
+        'uploads_user' => [
+            'driver' => 'local',
+            'root' => 'C:/www/tienda/public/uploads_users',
+
+        ],
 
         's3' => [
             'driver' => 's3',
