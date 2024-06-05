@@ -103,7 +103,21 @@ function user_permissions(){
                     'user_permissions' => 'Puede administrar los permisos de usuario',
                     ]
                 ],
-    ];
+                'settings' =>[
+                    'icon' => '<i class="fa fa-cogs"></i>',
+                    'title' => ' Modulo Configuraciones',
+                    'keys' => [
+                        'settings' => 'Puede modificar la configuracion.',
+                    ]
+                ],
+                'orders' =>[
+                    'icon' => '<i class="fas fa-clipboard-list"></i>',
+                    'title' => ' Modulo de pedidos',
+                    'keys' => [
+                        'orders_list' => 'Puede ver los pedidos.',
+                    ]
+                ]
+            ];
 
     return $p;
 }

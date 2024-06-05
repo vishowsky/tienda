@@ -36,6 +36,8 @@ Route::prefix('/admin')->group(function () {
     Route::post('/category/{id}/edit','Admin\CategoriesController@postCategoryEdit')->name('category_edit');
     Route::get('/category/{id}/delete','Admin\CategoriesController@getCategoryDelete')->name('category_delete');
 
+    Route::get('/settings', 'Admin\SettingsController@getHome')->name('settings');
+    Route::post('/settings', 'Admin\SettingsController@postHome')->name('settings');
 
 
 });
