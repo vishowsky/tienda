@@ -56,6 +56,13 @@
                             class="fas fa-clipboard-list"></i>Pedidos</a>
                 </li>
             @endif
+
+            @if (kvfj(Auth::user()->permissions, 'sliders_list'))
+                <li>
+                    <a href="{{ url('/admin/sliders') }}" class="lk-sliders_list"><i
+                            class="far fa-images"></i>Carrusel</a>
+                </li>
+            @endif
         </ul>
     </div>
 </div>

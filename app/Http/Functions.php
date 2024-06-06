@@ -32,7 +32,7 @@ function getRoleUserArray($mode, $id)
     $roles = [
         '0' => 'Usuario normal',
         '1' => 'Administrador',
-        '2' => 'weon'
+        '2' => 'prueba'
 
     ];
     if (!is_null($mode)):
@@ -114,7 +114,14 @@ function user_permissions(){
                     'icon' => '<i class="fas fa-clipboard-list"></i>',
                     'title' => ' Modulo de pedidos',
                     'keys' => [
-                        'orders_list' => 'Puede ver los pedidos.',
+                        'orders_list' => 'puede ver los pedidos.',
+                    ]
+
+                ],'sliders' =>[
+                    'icon' => '<i class="far fa-images"></i>',
+                    'title' => ' Modulo de Carrusel',
+                    'keys' => [
+                        'sliders_list' => 'Puede administrar el carrousel.',
                     ]
                 ]
             ];

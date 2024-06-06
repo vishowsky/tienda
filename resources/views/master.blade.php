@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -33,6 +33,7 @@
 
     <!-- ckeditor -->
     <script src="{{ url('/static/libs/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ url('/static/js/slider.js?v=' . time()) }}"></script>
 
     <script src="{{ url('/static/js/site.js?v=' . time()) }}"></script>
 

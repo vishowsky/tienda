@@ -186,6 +186,137 @@ nav
             .form-control
                 display none
 
+.home_action_bar
+    margin-top 24px
+    border-radius 4px
+    padding 12px
+
+    background-color white
+    border 1px solid #f0f0f0
+
+    .categories
+        position relative
+        a
+            background-color black
+            border-radius 4px
+            color white
+            display block
+            padding 12px
+            text-transform uppercase
+            text-decoration none
+            width 100%
+            &:hover
+                background-color red
+        &:active
+        &:focus
+            a
+                background-color red
+        &:hover
+            ul
+                display block
+        ul
+            display none
+            list-style none
+            padding 0px
+            margin 0px
+            position absolute
+            width 100%
+            li
+                a
+                    background-color white
+                    color black
+                    border-radius 0px
+                    img
+                        width 20px
+                        position: relative !important
+                        margin-top -5px
+                        margin-right 12px
+                    &:hover
+                        color white
+                        background-color red
+    .input-group
+        position relative
+        i
+            position: absolute
+            top: 14px
+            left: 12px
+            z-index 9999
+            font-size 1.4em
+        .form-control
+            border-radius: 4px 0px 0px 4px
+            padding 10px 16px
+            padding-left 42px
+            z-index 999
+        .btn
+            background-color black
+            color white
+            &:hover
+                background-color red
+
+
+.slider
+    display flex
+    flex-wrap wrap
+    margin-top 24px
+    min-height 380px
+    width 100%
+    overflow: hidden
+    position relative
+    ul.navigation
+        display block
+        width 100%
+        margin 0px
+        padding 0px
+        position absolute
+        top calc(50% - 18px)
+        overflow hidden
+        z-index 2
+        li
+            display inline-flex
+            float left
+            a
+                color white
+                background-color rgba(0,0,0, .5)
+                align-items center
+                justify-content center
+                height: 36px
+                width 36px
+                display: flex
+                border-radius 50%
+                text-decoration: none
+                font-size: 1.4em
+            &:first-child
+                margin-left: 16px
+                a
+                    i
+                        position relative
+                        margin-left -2px
+                        margin-top 2px
+            &:last-child
+                margin-right: 16px
+                float right
+                a
+                    i
+                        position relative
+                        margin-left 2px
+                        margin-top 2px
+
+
+    .slider-item
+        border 1px solid white
+        align-items center
+        display none
+        border-radius 4px
+        background-color white
+        color white
+        font-size 4em
+        justify-content center
+        position absolute
+        width 100% !important
+        min-height 380px
+        transition: .4s all ease-in-out
+
+
 @media only screen and (max-width 600px)
     nav
         .navbar-nav

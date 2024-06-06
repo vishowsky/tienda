@@ -39,5 +39,5 @@ Route::prefix('/admin')->group(function () {
     Route::get('/settings', 'Admin\SettingsController@getHome')->name('settings');
     Route::post('/settings', 'Admin\SettingsController@postHome')->name('settings');
 
-
+    Route::get('/sliders', 'Admin\SliderController@getHome')->name('sliders_list');
 });
