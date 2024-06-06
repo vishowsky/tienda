@@ -31,6 +31,15 @@ nav
     .navbar-brand
         img
            width 50px
+    .navbar-toggler
+        color red
+        border none
+        span
+            color red
+        &:active
+        &:focus
+            box-shadow none
+            outline none
     .navbar-nav
         li.nav-item
             a.nav-link
@@ -176,3 +185,23 @@ nav
 
             .form-control
                 display none
+
+@media only screen and (max-width 600px)
+    nav
+        .navbar-nav
+            overflow hidden
+            li.nav-item
+                float left
+                display block
+                width 50%
+                margin-right 0px
+                &:last-child
+                    float none
+                    width 100%
+            li.link-acc
+
+                a
+                    font-size 1.2em
+                    width 120px !important
+                    i
+                        font-size 1em !important

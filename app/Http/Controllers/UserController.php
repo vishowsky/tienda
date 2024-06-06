@@ -122,6 +122,7 @@ class UserController extends Controller
                 $u->lastname = e($request->input('lastname'));
                 $u->phone = e($request->input('phone'));
                 $u->birthday = e($request->input('birthday'));
+                $u->gender = e($request->input('gender'));
                 if($u->save()):
 
                     return back()->with('message', 'informacion actualizada')->with('typealert', 'success');

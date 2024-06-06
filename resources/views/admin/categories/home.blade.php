@@ -18,7 +18,7 @@
                 </div>
                 <div class="inside">
                     @if(kvfj(Auth::user()->permissions,'category_add'))
-                    {!! Form::open(['url' => '/admin/category/add']) !!}
+                    {!! Form::open(['url' => '/admin/category/add', 'files' => true]) !!}
                     <label for="name">Nombre</label>
                     <div class="input-group">
                             <span class="input-group-text" id="basic-addon1">
@@ -37,12 +37,10 @@
                     </div>
 
                     <label for="icon" class="mt16">Icono</label>
-                    <div class="input-group">
-                            <span class="input-group-text" id="basic-addon1">
-                                <i class="far fa-keyboard"></i>
-                            </span>
-                        {!! Form::text('icon',null, ['class'=>'form-control']) !!}
+                    <div class="form-file">
+                        {!! Form::file('icon', ['class' => 'form-control', 'required' ,'id' => 'customFile', 'accept' => 'image/*']) !!}
                     </div>
+
 
                     {!! Form::submit('Guardar', ['class' => 'btn btn-success mt16']) !!}
                     {!! Form::close() !!}
@@ -65,7 +63,7 @@
                     <table class="table mt16">
                         <thead>
                             <tr>
-                                <td width="32px"></td>
+                                <td width="64px"></td>
                                 <td>Nombre</td>
                                 <td width="140px"></td>
                             </tr>
@@ -73,7 +71,7 @@
                         <tbody>
                             @foreach($cats as $cat)
                             <tr>
-                                <td>{!! htmlspecialchars_decode( $cat->icono) !!}</td>
+                                <td> <img src="{{ url('/uploads/'.$cat->file_path.'/'.$cat->icono) }}" alt="" class="img-fluid"></td>
                                 <td>{{ $cat->name }}</td>
                                 <td>
                                     <div class="options">

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width-device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title') - tienda</title>
     <meta name="csrf_token" content="{{ csrf_token() }}">
@@ -55,12 +55,13 @@
 <nav class="navbar navbar-expand-lg shadow">
     <div class="container-fluid">
         <a href="{{ '/' }}" class="navbar-brand"><img src="{{ url('/static/images/logo.png') }}" alt=""></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigationMain"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"> </i>
             </span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarText">
+        <div class="collapse navbar-collapse" id="navigationMain">
             <ul class="navbar-nav ms-auto">
                 <li class=" nav-item">
                     <a href="{{ url('/') }}" class="nav-link">Inicio</a>
@@ -82,14 +83,14 @@
                 </a>
                 </li>
                 @if(Auth::guest())
-                <li class=" nav-item">
+                <li class=" nav-item link-acc">
                     <a href="{{ url('/login') }}" class="nav-link btn">Ingresar</a>
                 </li>
-                <li class=" nav-item">
+                <li class=" nav-item link-acc">
                     <a href="{{ url('/register') }}" class="nav-link btn">Crear cuenta</a>
                 </li>
                 @else
-                <li class=" nav-item link-acc link-user dropdown">
+                <li class=" nav-item  link-user dropdown">
                     <a href="{{ url('/register') }}" class="nav-link btn dropdown-toggle"
                     id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false"
                     >@if(is_null(Auth::user()->avatar))

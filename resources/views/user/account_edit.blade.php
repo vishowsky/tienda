@@ -149,7 +149,7 @@
                                 <span class="input-group-text" id="basic-addon1">
                                     <i class="far fa-keyboard"></i>
                                 </span>
-                                {!! Form::select('gender', ['0' => 'Sin Especificar', '1' => 'Hombre', '2' => 'Mujer', '3' => 'Otro'], null, [
+                                {!! Form::select('gender', ['0' => 'Sin Especificar', '1' => 'Hombre', '2' => 'Mujer', '3' => 'Otro'],  Auth::user()->gender, [
                                     'class' => 'form-control',
                                 ]) !!}
                             </div>
