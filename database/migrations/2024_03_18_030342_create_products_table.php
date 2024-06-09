@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->string('slug');
             $table->integer('category_id');
             $table->string('image');
-            $table->decimal('price',11,2);
+            $table->integer('price');
             $table->integer('indiscount');
             $table->integer('discount');
             $table->text('content');

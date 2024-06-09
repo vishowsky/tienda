@@ -52,9 +52,15 @@ class UserController extends Controller
                                 $constraint->upsize();
                             });
                             $img->save($upload_path . '/' . $path . '/av_' . $filename);
+
                         endif;
-                        unlink($upload_path.'/'.$path.'/'.$aa);
-                        unlink($upload_path.'/'.$path.'/av_'.$aa);
+                        if (file_exists($upload_path.'/'.$path.'/'.$aa) && is_file($upload_path.'/'.$path.'/'.$aa)) {
+                            unlink($upload_path.'/'.$path.'/'.$aa);
+                        }
+                        if (file_exists($upload_path.'/'.$path.'/av_'.$aa) && is_file($upload_path.'/'.$path.'/av_'.$aa)) {
+                            unlink($upload_path.'/'.$path.'/av_'.$aa);
+                        }
+
                     return back()->with('message', 'foto de perfil guardada con exito con exito')->with('typealert', 'success');
                 endif;
             endif;
