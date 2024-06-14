@@ -7,19 +7,16 @@
             <a href="#" id="slider_nav_next"><i class="fas fa-chevron-right"></i></a>
         </li>
     </ul>
-    <div class="slider-item" style="background-color: red">
-        1
+    @foreach($sliders as $slider)
+    <div class="slider-item">
+        <div class="row">
+            <div class="col-md-7">
+                {!! $slider->content !!}
+            </div>
+            <div class="col-md-5">
+                <img src="{{ url('/uploads/'.$slider->file_path.'/'.$slider->file_name) }}" class="img-fluid">
+            </div>
+        </div>
     </div>
-    <div class="slider-item" style="background-color: blue">
-        2
-    </div>
-    <div class="slider-item" style="background-color: pink">
-        3
-    </div>
-    <div class="slider-item " style="background-color: green">
-        4
-    </div>
-    <div class="slider-item " style="background-color: yellow ">
-        5
-    </div>
+    @endforeach
 </div>

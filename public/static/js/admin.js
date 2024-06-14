@@ -58,13 +58,13 @@ function delete_object(e){
     var url = base + '/' + path + '/' + object + '/'+ action ;
     var title,text, icon;
     if(action == "delete"){
-        title = 'Seguro que quieres eliminar el producto?';
+        title = 'Seguro que quieres eliminar este elemento?';
         text = 'Recuerda que esta accion enviara al producto a la papelera';
         icon = 'warning';
 
     }
     if(action == "restore"){
-        title = 'Seguro que quieres restaurar el producto?';
+        title = 'Seguro que quieres restaurar este elemento9?';
         text = 'Recuerda que esta accion restaurara el producto y lo dejarta activo';
         icon = 'info';
     }

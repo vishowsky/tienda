@@ -1,5 +1,8 @@
-var base = location.protocol + '//' + location.host;
-var route = document.getElementsByName('routeName')[0].getAttribute('content');
+const base = location.protocol + '//' + location.host;
+const route = document.getElementsByName('routeName')[0].getAttribute('content');
+const http = new XMLHttpRequest();
+const csrfToken = document.getElementsByName('csrf_token')[0].getAttribute('content');
+
 document.addEventListener('DOMContentLoaded', function (){
     var slider = new Slider;
     var form_avatar_change = document.getElementById('form_avatar_change');
@@ -22,6 +25,26 @@ document.addEventListener('DOMContentLoaded', function (){
         })
     }
     slider.show();
+    if(route == "home"){
+        load_products('home');
+    }
 
 });
 
+function load_products(section){
+    var url = base+ '/js/api/load/products/'+section;
+    http.open('GET',url,true);
+    http.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+    http.send();
+    http.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+            var data = this.responseText;
+            data = JSON.parse(data);
+            data.data.forEach( function(element, index){
+                console.log(product.name);
+            });
+        }else{
+
+        }
+    }
+}

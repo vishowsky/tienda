@@ -95,7 +95,7 @@
                     <a href="{{ url('/register') }}" class="nav-link btn dropdown-toggle"
                     id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false"
                     >@if(is_null(Auth::user()->avatar))
-                        <img src="{{ url('/static/images/default-avatar.png') }}" alt=""> @endif {{ Auth::user()->name}} {{ Auth::user()->lastname}}</a>
+                        <img style="border-radius: 50%" width="24px" src="{{ url('/static/images/default-avatar.png') }}" alt=""> @endif {{ Auth::user()->name}} {{ Auth::user()->lastname}}</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @if(Auth::user()->role == "1")
                             <li><a class="dropdown-item" href="{{ url('/admin') }}">Panel Administrativo</a></li>

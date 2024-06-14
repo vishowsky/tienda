@@ -12,7 +12,7 @@
 |
 */
 
-Route::get('/', 'ContentController@getHome');
+Route::get('/', 'ContentController@getHome')->name('home');
 
 //Route login
 Route::get('/login', 'ConnectController@getLogin')->name('login');
@@ -36,3 +36,7 @@ Route::get('/account/edit', 'UserController@getAccountEdit')->name('account_edit
 Route::post('/account/edit/avatar', 'UserController@postAccountAvatar')->name('account_avatar_edit');
 Route::post('/account/edit/password', 'UserController@postAccountPassword')->name('account_password_edit');
 Route::post('/account/edit/info', 'UserController@postAccountInfo')->name('account_info_edit');
+
+//Route ajax api
+
+Route::get('/js/api/load/products/{section}','ApiJsController@getProductsSection');

@@ -40,4 +40,10 @@ Route::prefix('/admin')->group(function () {
     Route::post('/settings', 'Admin\SettingsController@postHome')->name('settings');
 
     Route::get('/sliders', 'Admin\SliderController@getHome')->name('sliders_list');
+    Route::post('/slider/add', 'Admin\SliderController@postSliderAdd')->name('slider_add');
+    Route::get('/slider/{id}/edit', 'Admin\SliderController@getSliderEdit')->name('slider_edit');
+    Route::post('/slider/{id}/edit', 'Admin\SliderController@postSliderEdit')->name('slider_edit');
+    Route::get('/slider/{id}/delete', 'Admin\SliderController@getSliderDelete')->name('slider_delete');
+
+
 });

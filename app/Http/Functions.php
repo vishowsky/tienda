@@ -122,6 +122,10 @@ function user_permissions(){
                     'title' => ' Modulo de Carrusel',
                     'keys' => [
                         'sliders_list' => 'Puede administrar el carrousel.',
+                        'slider_add' => 'Puede agregar elementos al carrousel.',
+                        'slider_edit' => 'Puede editar elementos del carrousel.',
+                        'slider_delete' => 'Puede eliminar elementos del carrousel.',
+
                     ]
                 ]
             ];
