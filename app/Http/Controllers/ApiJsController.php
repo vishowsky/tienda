@@ -8,7 +8,7 @@ use App\Http\Models\Product;
 class ApiJsController extends Controller
 {
     function getProductsSection($section, Request $request){
-        $items_x_page = Config::get('tienda.products_per_page');
+        $items_x_page = Config::get('tienda.products_page');
         switch ($section):
             case 'home':
                 $products = Product::where('status' , 1)->inRandomOrder()->paginate($items_x_page);

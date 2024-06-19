@@ -39,5 +39,11 @@
 <section>
     @include('components/sliders_home')
 </section>
-    @endsection
+<section>
+        <div id="products_list" class="products_list"></div>
+        <div class="load_more_products">
+            <a id="load_more_products" href="">Cargar mas productos</a>
+        </div>
+</section>
+@endsection
 

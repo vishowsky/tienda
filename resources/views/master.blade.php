@@ -8,6 +8,7 @@
     <title>@yield('title') - tienda</title>
     <meta name="csrf_token" content="{{ csrf_token() }}">
     <meta name="routeName" content="{{ Route::currentRouteName() }}">
+    <meta name="currency" content="{{ Config::get('tienda.currency')}}">
 
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/09afb5370b.js" crossorigin="anonymous"></script>
@@ -103,6 +104,7 @@
 
                             <li><a class="dropdown-item" href="">Cuenta</a></li>
                             <li><a class="dropdown-item" href="{{ url('/account/edit') }}">Editar informacion</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/account/favorites') }}">Lista de deseados</a></li>
                             <li><a class="dropdown-item" href="{{ url('/logout') }}">Cerrar sesion</a></li>
 
                         </ul>

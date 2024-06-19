@@ -57,13 +57,18 @@ nav
                 background-color white
                 color red
                 &:hover
-                    background-color red
-                    color white
+
+                    color black
 
             ul.dropdown-menu
+                right 10px !important
                 border-radius 0px 0px 4px 4px
                 border 1px solid red
                 top 150% !important
+                li
+                    &:hover
+                        background-color red
+                        color white
         li.link-acc
             img
                 width 24px
@@ -330,7 +335,107 @@ nav
             p
                 display block
                 text-align center
+.load_more_products
+    margin-bottom 24px
+    a
+        display block
+        width 40%
+        margin-left 30%
+        position relative
+        padding 8px
+        border 1px solid red
+        border-radius 4px
+        color white
+        background-color red
+        text-align center
+        text-transform uppercase
+        text-decoration none
+        &:hover
+            background-color rgb(129, 0, 0)
+            border 1px solid rgb(129, 0, 0)
+            color white
+.products_list
+    display block
+    margin-top 32px
+    overflow hidden
+    width 100%
+    padding 0px
+    .product
+        display inline-block
+        width 18%
+        float left
+        margin-bottom 16px
+        margin-right 2.4%
+        &:nth-child(5n)
+            margin-right 0px
+        .image
+            display block
+            width 100%
+            position relative
+            overflow hidden
+            .overlay
+                position absolute
+                background-color rgba(0,0,0, .5)
+                display none
+                flex 1
+                height 100%
+                position absolute
+                width 100%
+                z-index 9
+                border-radius 4px
+                transition .3s all ease-in-out
+                .btns
+                    position absolute
+                    display block
+                    width 94%
+                    bottom 8px
+                    overflow hidden
+                    left 3%
+                    a
+                        float left
+                        box-sizing border-box
+                        border-radius 4px
+                        font-size 1.2em
+                        padding 6px
+                        text-align center
+                        width 32%
+                        background-color white
+                        color red
+                        margin-right 2%
+                        &:last-child
+                            margin-right 0px
+            img
+                display block
+                width 100%
+                border-radius 4px
+                transform scale(1)
+                transition .3s all ease-in-out
+                z-index 4
+        &:hover
+            .image
+                img
+                    transform scale(1.1)
+                .overlay
+                    display flex
+        a
+            text-decoration none
+            .title
+            .price
+            .options
+                display block
+                width 100%
 
+
+            .title
+                margin-top 8px
+            .title
+                font-size 1.2em
+                color #111111
+            .price
+                font-size 1.4em
+                font-weight bold
+                color #111111
+                margin-top 4px
 
 @media only screen and (max-width 600px)
     nav

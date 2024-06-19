@@ -65,7 +65,6 @@
 
                                 {!! Form::number('orden', $slider->orden, ['class' => 'form-control', 'min', 'rows' => '3']) !!}
                             </div>
-
                             {!! Form::submit('Guardar', ['class' => 'btn btn-success mt16']) !!}
                             {!! Form::close() !!}
                         </div>

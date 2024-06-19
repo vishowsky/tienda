@@ -1,10 +1,10 @@
-<?php 
+<?php
 return [
-'name' => 'Tienda',
+'name' => 'hola',
 'currency' => '$',
 'store_phone' => '90091537',
 'map' => 'sas',
 'maintance_mode' => '1',
-'products_page' => '213',
+'products_page' => '5',
 ]
 ?>
