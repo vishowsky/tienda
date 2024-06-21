@@ -14,6 +14,8 @@ a
         box-shadow none
         outline none
 
+.pleft0
+    padding-left 0px !important
 
 .mt32
     margin-top 32px
@@ -191,6 +193,11 @@ nav
             .form-control
                 display none
 
+
+.favorite_active
+
+    background-color red !important
+    color white !important
 .home_action_bar
     margin-top 24px
     border-radius 4px
@@ -429,14 +436,44 @@ nav
             .title
                 margin-top 8px
             .title
+                display block
                 font-size 1.2em
+                overflow hidden
+                white-space nowrap
+                text-overflow ellipsis
                 color #111111
+                width 100%
             .price
                 font-size 1.4em
                 font-weight bold
                 color #111111
                 margin-top 4px
+.product_single
+    background-color #fff
+    margin-top 32px
+    padding 12px
+    border-radius 4px
 
+.slick-next
+    right 8px !important
+.slick-prev
+    left 8px !important
+.slick-arrow
+    display flex !important
+    align-items center !important
+    justify-content center !important
+    border-radius 50% !important
+    height 36px !important
+    width 36px !important
+    z-index 90 !important
+    &:before
+        position relative !important
+        top 0px !important
+        left 1px !important
+
+.slick-active
+    box-shadow none !important
+    outline none !important
 @media only screen and (max-width 600px)
     nav
         .navbar-nav

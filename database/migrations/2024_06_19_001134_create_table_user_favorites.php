@@ -15,6 +15,10 @@ class CreateTableUserFavorites extends Migration
     {
         Schema::create('user_favorites', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
+            $table->integer('module');
+            //corresponde al item que se va a favoritos, puede ser productos, entrada de blog, etc
+            $table->integer('object_id');
             $table->timestamps();
         });
     }

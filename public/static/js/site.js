@@ -3,8 +3,21 @@ const route = document.getElementsByName('routeName')[0].getAttribute('content')
 const http = new XMLHttpRequest();
 const csrfToken = document.getElementsByName('csrf_token')[0].getAttribute('content');
 const currency = document.getElementsByName('currency')[0].getAttribute('content');
+const auth = document.getElementsByName('auth')[0].getAttribute('content');
+
 var page = 1;
 var page_section = "";
+var products_list_ids_temp = [];
+
+$(document).ready(function() {
+    $('.slick-slider').slick({
+        dots: true,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+    });
+});
+
 
 document.addEventListener('DOMContentLoaded', function (){
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
@@ -32,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function (){
     }
 
     if(input_file_avatar){
-        input_file_avatar.adxmdEventListener('change' , function(){
+        input_file_avatar.addEventListener('change' , function(){
             var load_img = '<img src="'+base+'/static/images/loading.svg" />';
             avatar_change_overlay.innerHTML = load_img;
             avatar_change_overlay.style.display = 'flex';
@@ -66,19 +79,24 @@ function load_products(section){
             }
 
             data.data.forEach( function(product, index){
+                products_list_ids_temp.push('product.id');
                 var div = "";
                 div += "<div class=\"product\">";
                     div += "<div class=\"image\">";
                         div += "<div class=\"overlay\">";
                             div += "<div class=\"btns\">";
                                 div += "<a href=\""+base+"/product/"+product.id+"/"+product.slug+"\" data-bs-toggle=\"tooltip\" data-bs-placement=\"top\" data-bs-title=\"Ver producto\"><i class=\"fa-regular fa-eye\"></i></a>";
-                                div += "<a href=\""+base+"/product/"+product.id+"/"+product.slug+"\" data-bs-toggle=\"tooltip\" data-bs-placement=\"top\" data-bs-title=\"Agregar al carro\"><i class=\"fa-solid fa-cart-shopping\"></i></a>";
-                                div += "<a href=\""+base+"/product/"+product.id+"/"+product.slug+"\" data-bs-toggle=\"tooltip\" data-bs-placement=\"top\" data-bs-title=\"Agregar a favoritos\"><i class=\"fa-regular fa-heart\"></i></a>";
-                            div += "</div>"
+                                div += "<a href=\"\" data-bs-title=\"Agregar al carro\"><i class=\"fa-solid fa-cart-shopping\"></i></a>";
+                                if(auth == "1"){
+                                    div += "<a href=\"#\" id=\"favorite_1_"+product.id+"\" onclick=\"add_to_favorites('"+product.id+"','1');return false;\" data-bs-title=\"Agregar a favoritos\"><i class=\"fa-regular fa-heart\"></i></a>";
+                                }else{
+                                    div += "<a href=\"#\" id=\"favorite_1_"+product.id+"\" onclick=\"Swal.fire({title: 'Chuta...', text: 'Debes iniciar sesion para agregar favoritos',icon: 'error' });return false;\" data-bs-title=\"Agregar a favoritos\"><i class=\"fa-regular fa-heart\"></i></a>";
+                                }
+                                div += "</div>"
                         div += "</div>";
                         div += "<img src=\""+base+"/uploads/"+product.file_path+"/t_"+product.image+"\">";
                     div += "</div>";
-                    div += "<a href=\""+base+"/product/"+product.id+"/"+product.slug+"\">";
+                    div += "<a href=\""+base+"/product/"+product.id+"/"+product.slug+"\" title=\""+product.name+"\">";
                         div += "<div class=\"title\">"+product.name+"</div>";
                         div += "<div class=\"price\">"+currency+" "+product.price+"</div>";
                         div += "<div class=\"options\"></div>";
@@ -86,9 +104,52 @@ function load_products(section){
                 div += "<div>";
                 products_list.innerHTML += div;
             });
+
+            if(auth == "1"){
+                mark_user_favorites(products_list_ids_temp);
+                products_list_ids_temp = [];
+        }
         }else{
 
         }
-
     }
+}
+
+function mark_user_favorites(object){
+    var url = base + '/js/api/load/user/favorites/';
+    var params = 'module=1&object='+object;
+    console.log(object);
+    http.open('POST',url,true);
+    http.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+    http.setRequestHeader('Content-type','applicaction/x-www-form-urlencoded')
+    http.send(params);
+    http.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+            var data = this.responseText;
+            data = JSON.parse(data);
+
+            if(data.count > "0")
+                data.objects.forEach(function(product, index){
+                    document.getElementById('favorite_1_'+favorite).classList.add('favorite_active');
+                });
+        }
+    }
+}
+function add_to_favorites(object, module){
+    url = base+'/js/api/favorites/add/'+object+'/'+module;
+    http.open('POST',url,true);
+    http.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+    http.send();
+    http.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+            var data = this.responseText;
+            data = JSON.parse(data);
+            if(data.status == "success"){
+                document.getElementById('favorite_'+module+'_'+object).classList.add('favorite_active');
+            }
+
+        }
+    }
+
+
 }

@@ -80,7 +80,16 @@
                             <span class="input-group-text" id="basic-addon1">
                                 <i class="far fa-keyboard"></i>
                             </span>
-                            {!! Form::text('products_page',Config::get('tienda.products_page'), ['class' => 'form-control']) !!}
+                            {!! Form::number('products_page',Config::get('tienda.products_page'), ['class' => 'form-control', 'min' => 1, 'required']) !!}
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="products_page">Cantidad de productos para mostrar por pagina(random)</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1">
+                                <i class="far fa-keyboard"></i>
+                            </span>
+                            {!! Form::text('products_page_random',Config::get('tienda.products_page_random'), ['class' => 'form-control','min' => 1]) !!}
                         </div>
                     </div>
                 </div>

@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width-device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@yield('title') - tienda</title>
+    <title>@yield('title') - {{ Config::get('tienda.name') }}</title>
     <meta name="csrf_token" content="{{ csrf_token() }}">
     <meta name="routeName" content="{{ Route::currentRouteName() }}">
     <meta name="currency" content="{{ Config::get('tienda.currency')}}">
-
+    <meta name="auth" content="{{ Auth::check() }}" >
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/09afb5370b.js" crossorigin="anonymous"></script>
 
@@ -32,6 +32,10 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
 
+
+    <link rel="stylesheet"  href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"/>
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
     <!-- ckeditor -->
     <script src="{{ url('/static/libs/ckeditor/ckeditor.js') }}"></script>
     <script src="{{ url('/static/js/slider.js?v=' . time()) }}"></script>
@@ -41,8 +45,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
     <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
+
     <!-- sweet alert-->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"> </script>
+    <script typr="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <!-- Slick CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 
     <script>
         $(document).ready(function() {
@@ -139,6 +150,8 @@
             </div>
         </div>
     @endif
+
+
 
     <div class="wrapper">
         <div class="container">
