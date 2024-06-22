@@ -66,6 +66,7 @@
                                 <td></td>
                                 <td>Nombre</td>
                                 <td>Categoria</td>
+                                <td>Subcategoria</td>
                                 <td>SKU</td>
                                 <td>Precio</td>
                                 <td></td>
@@ -86,11 +87,27 @@
                                                 title="Borrador"></i>
                                         @endif
                                     </td>
-                                    <td>{{ $p->cat->name }}</td>
+                                    <td>
+                                        @if($p->cat)
+                                            {{ $p->cat->name }}
+                                        @else
+                                            Sin categoría
+                                        @endif</td>
+                                        <td>
+                                            @if($p->subcategory_id != "0")
+                                                {{ $p->getSubcategory->name}}
+                                            @else
+                                                Sin Subcategoria
+                                            @endif
+                                        </td>
                                     <td>{{ $p->sku }}</td>
                                     <td>{{ $p->price }}</td>
                                     <td>
                                         <div class="options">
+                                            @if (kvfj(Auth::user()->permissions, 'product_edit'))
+                                            <a href="{{ url('/admin/product/' . $p->id . '/edit') }}" data-toggle="tooltip"
+                                                data-placement="top" title="Editar"><i class="fas fa-edit"></i></a>
+                                            @endif
                                             @if (kvfj(Auth::user()->permissions, 'product_delete'))
                                             @if (is_null($p->deleted_at))
                                             <a href="#" data-path="admin/product" data-action="delete" class="btn-deleted"

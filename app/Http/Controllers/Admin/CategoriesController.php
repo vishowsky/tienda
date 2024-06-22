@@ -18,12 +18,12 @@ class CategoriesController extends Controller
 
     }
     public function getHome($module){
-        $cats = Category::where('module',$module)->orderBy('name','Asc')->get();
-        $data = ['cats' => $cats];
+        $cats = Category::where('module',$module)->where('parent', '0')->orderBy('order','Asc')->get();
+        $data = ['cats' => $cats, 'module' => $module ];
 
         return view('admin.categories.home',$data);
     }
-    public function postCategorieAdd(request $request){
+    public function postCategorieAdd(request $request, $module){
         $rules = [
             'name'=> 'required',
             'icon' => 'required',
@@ -47,7 +47,8 @@ class CategoriesController extends Controller
 
             $c = new Category;
             $c ->name = e($request->input('name'));
-            $c ->module = $request->input('module');
+            $c ->module = $module;
+            $c ->parent = $request->input('parent');
             $c ->slug = Str::slug($request->input('name'));
             $c ->file_path = date('Y-m-d');
             $c -> icono = $filename;
@@ -87,7 +88,6 @@ class CategoriesController extends Controller
 
             $c = Category::find($id);
             $c ->name = e($request->input('name'));
-            $c ->module = $request->input('module');
             //$c ->slug = Str::slug($request->input('name'));
             if($request->hasFile('icon')):
                 $actual_icon = $c->icono;
@@ -104,12 +104,20 @@ class CategoriesController extends Controller
                     unlink($upload_path.'/'.$actual_file_path.'/'.$actual_icon);
                 endif;
             endif;
+            $c->order = $request->input('order');
             if($c->save()):
                 return back()->withErrors($validator)->with('message','Categoria Guardada con exito')->with('typealert','success');
             endif;
         endif;
 
 
+
+    }
+
+    public function getSubCategories($id){
+        $cat = Category::findOrFail($id);
+        $data = ['category' => $cat];
+        return view('admin.categories.subs_categories',$data);
     }
     public function getCategoryDelete($id){
 

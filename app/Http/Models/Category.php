@@ -12,4 +12,11 @@ class Category extends Model
     protected $table = 'categories';
     protected $hidden = ['created_at' ,'updated_at'];
 
+    public function getSubcategories(){
+        return $this->hasMany(Category::class,'parent','id');
+    }
+
+    public function getParent(){
+        return $this->hasOne(Category::class, 'id', 'parent');
+    }
 }

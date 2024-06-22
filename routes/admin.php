@@ -31,8 +31,11 @@ Route::prefix('/admin')->group(function () {
 
 
     Route::get('/categories/{module}','Admin\CategoriesController@getHome')->name('categories');
-    Route::post('/category/add','Admin\CategoriesController@postCategorieAdd')->name('category_add');
+    Route::post('/category/add/{module}','Admin\CategoriesController@postCategorieAdd')->name('category_add');
     Route::get('/category/{id}/edit','Admin\CategoriesController@getCategoryEdit')->name('category_edit');
+
+    Route::get('/category/{id}/subs','Admin\CategoriesController@getSubCategories')->name('category_edit');
+
     Route::post('/category/{id}/edit','Admin\CategoriesController@postCategoryEdit')->name('category_edit');
     Route::get('/category/{id}/delete','Admin\CategoriesController@getCategoryDelete')->name('category_delete');
 
@@ -45,5 +48,7 @@ Route::prefix('/admin')->group(function () {
     Route::post('/slider/{id}/edit', 'Admin\SliderController@postSliderEdit')->name('slider_edit');
     Route::get('/slider/{id}/delete', 'Admin\SliderController@getSliderDelete')->name('slider_delete');
 
+
+    Route::get('/js/api/load/subcategories/{parent}','Admin\ApiController@getSubCategories');
 
 });

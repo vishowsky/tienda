@@ -25,16 +25,16 @@ class ProductController extends Controller
     {
         switch($status){
             case '0':
-                $products = Product::with(['cat'])->where('status','0')->orderBy('id', 'desc')->paginate(25);
+                $products = Product::with(['cat','getSubcategory'])->where('status','0')->orderBy('id', 'desc')->paginate(25);
                 break;
             case '1':
-                $products = Product::with(['cat'])->where('status','1')->orderBy('id', 'desc')->paginate(25);
+                $products = Product::with(['cat','getSubcategory'])->where('status','1')->orderBy('id', 'desc')->paginate(25);
                 break;
             case 'all':
-                $products = Product::with(['cat'])->orderBy('id', 'desc')->paginate(25);
+                $products = Product::with(['cat','getSubcategory'])->orderBy('id', 'desc')->paginate(25);
                 break;
             case 'trash':
-                $products = Product::with(['cat'])->onlyTrashed()->orderBy('id', 'desc')->paginate(25);
+                $products = Product::with(['cat','getSubcategory'])->onlyTrashed()->orderBy('id', 'desc')->paginate(25);
                 break;
         }
         $data = ['products' => $products];
@@ -45,7 +45,7 @@ class ProductController extends Controller
     public function getProductAdd()
     {
 
-        $cats = Category::where('module', '0')->pluck('name', 'id');
+        $cats = Category::where('module', '0')->where('parent','0')->pluck('name', 'id');
         $data = ['cats' => $cats];
         return view('admin.products.add', $data);
     }
@@ -85,6 +85,7 @@ class ProductController extends Controller
             $product->sku = e($request->input('sku'));
             $product->slug = Str::slug($request->input('name'));
             $product->category_id = $request->input('category');
+            $product->subcategory_id = $request->input('subcategory');
             $product->file_path = date('Y-m-d');
             $product->image = $filename;
             $product->price = $request->input("price");
@@ -111,7 +112,7 @@ class ProductController extends Controller
     public function getProductEdit($id)
     {
         $p = Product::findOrFail($id);
-        $cats = Category::where('module', '0')->pluck('name', 'id');
+        $cats = Category::where('module', '0')->where('parent','0')->pluck('name', 'id');
         $data = ['cats' => $cats, 'p'=> $p];
         return view('admin.products.edit', $data);
 
@@ -141,9 +142,11 @@ class ProductController extends Controller
             $product->status = $request->input('status');
             $product->sku =e($request->input('sku'));
             $product->name = e($request->input('name'));
-            $product->sku = e($request->input('sku'));
+            //$product->sku = e($request->input('sku'));
             //$product->slug = Str::slug($request->input('name'));
             $product->category_id = $request->input('category');
+            $product->subcategory_id = $request->input('subcategory');
+
             if ($request->hasFile('img')):
                 $path = '/' . date('Y-m-d');
                 $fileExt = trim($request->file('img')->getClientOriginalExtension());
@@ -174,7 +177,7 @@ class ProductController extends Controller
                     unlink($upload_path.'/'.$ipp.'/t_'.$ip);
                 endif;
                 //return back()->with('message', 'Actualizado con exito')->with('typealert', 'success');
-                return redirect('/admin/products/all')->with('message', 'Actualizado con exito con exito')->with('typealert', 'success');
+                return redirect('/admin/product/'.$product->id.'/edit')->with('message', 'Actualizado con exito con exito')->with('typealert', 'success');
             endif;
 
         endif;

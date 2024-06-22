@@ -25,7 +25,7 @@
                     <div class="row">
 
                         <!-- Campo nombre del producto -->
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <label for="title">Nombre del producto:</label>
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon1">
@@ -35,22 +35,28 @@
                             </div>
                         </div>
 
-                        <div class="col-md-3">
+                        <div class="col-md-6">
                             <label for="category">Categoria</label>
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon1">
                                     <i class="far fa-keyboard"></i>
                                 </span>
-                                {!! Form::select('category', $cats, 0, ['class' => 'form-select']) !!}
+                                {!! Form::select('category', $cats, 0, ['class' => 'form-select', 'id' => 'category', 'required']) !!}
+                                {!! Form::hidden('subcategory_actual', 0, ['id' => 'subcategory_actual']) !!}
+
                             </div>
                         </div>
 
-                        <div class="col-md-3">
-                            <label for="name">Imagen destacada</label>
-                            <div class="form-file">
-                                {!! Form::file('img', ['class' => 'form-control', 'id' => 'customFile', 'accept' => 'image/*']) !!}
+                        <div class="col-md-6">
+                            <label for="subcategory">Subcategoria</label>
+                            <div class="input-group">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <i class="far fa-keyboard"></i>
+                                    </span>
+                                {!! Form::select('subcategory', [], null, ['class' => 'form-select', 'id' => 'subcategory', 'required']) !!}
                             </div>
                         </div>
+
                     </div>
 
                     <div class="row mt16">
@@ -104,6 +110,13 @@
                                     <i class="far fa-keyboard"></i>
                                 </span>
                                 {!! Form::number('sku', 0, ['class' => 'form-control', 'min' => '0', 'step' => 'any']) !!}
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="name">Imagen destacada</label>
+                            <div class="form-file">
+                                {!! Form::file('img', ['class' => 'form-control', 'id' => 'customFile', 'accept' => 'image/*']) !!}
                             </div>
                         </div>
                     </div>

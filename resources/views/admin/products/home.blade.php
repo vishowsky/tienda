@@ -66,6 +66,7 @@
                             <td></td>
                             <td>Nombre</td>
                             <td>Categoria</td>
+                            <td>Sub Categoria</td>
                             <td>SKU</td>
                             <td>Precio</td>
                             <td></td>
@@ -87,7 +88,19 @@
                                             title="Borrador"></i>
                                     @endif
                                 </td>
-                                <td>{{ $p->cat->name }}</td>
+                                <td>
+                                @if($p->cat)
+                                    {{ $p->cat->name }}
+                                @else
+                                    Sin categoría
+                                @endif</td>
+                                <td>
+                                    @if($p->subcategory_id != "0")
+                                        {{ $p->getSubcategory->name}}
+                                    @else
+                                        Sin Subcategoria
+                                    @endif
+                                </td>
                                 <td>{{ $p->sku }}</td>
                                 <td>{{ $p->price }}</td>
                                 <td>

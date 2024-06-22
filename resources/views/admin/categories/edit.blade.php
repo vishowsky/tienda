@@ -3,9 +3,22 @@
 @section('title', 'Agregar Producto')
 @section('breadcrumb')
     <li class="breadcrumb-item">
-        <a href="{{ url('/admin/categories') }}"><i class="fa fa-boxes"></i>Categorias
+        <a href="{{ url('/admin/categories/0') }}"><i class="fa fa-boxes"></i>Categorias
         </a>
     </li>
+@if($cat->parent != "0")
+<li class="breadcrumb-item">
+    <a href="{{ url('/admin/category/'.$cat->parent.'/subs') }}"><i class="fa fa-folder-open"></i>{{ $cat->getParent->name }}
+    </a>
+</li>
+
+@else
+@endif
+
+<li class="breadcrumb-item">
+    <a href="{{ url('/admin/category/'.$cat->id.'/edit') }}"><i class="fa fa-folder-open"></i>{{ $cat->name }}
+    </a>
+</li>
 @endsection
 
 @section('content')
@@ -26,19 +39,26 @@
                             {!! Form::text('name', $cat->name, ['class' => 'form-control']) !!}
                         </div>
 
-                        <label for="module" class="mt16">Modulo</label>
+                        {{-- <label for="module" class="mt16">Modulo</label>
                         <div class="input-group">
                             <span class="input-group-text" id="basic-addon1">
                                 <i class="far fa-keyboard"></i>
                             </span>
                             {!! Form::select('module', getModulesArray(), $cat->module, ['class' => 'form-select']) !!}
-                        </div>
+                        </div> --}}
 
                         <label for="icon" class="mt16">Icono</label>
                         <div class="form-file">
                             {!! Form::file('icon', ['class' => 'form-control' ,'id' => 'customFile', 'accept' => 'image/*']) !!}
                         </div>
 
+                        <label for="name" class="mt16">Orden</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1">
+                                <i class="far fa-keyboard"></i>
+                            </span>
+                            {!! Form::number('order', $cat->order, ['class' => 'form-control']) !!}
+                        </div>
 
                         {!! Form::submit('Guardar', ['class' => 'btn btn-success mt16']) !!}
                         {!! Form::close() !!}

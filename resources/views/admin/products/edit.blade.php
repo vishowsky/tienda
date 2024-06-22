@@ -25,7 +25,7 @@
                             <div class="row">
 
                                 <!-- Campo nombre del producto -->
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <label for="title">Nombre del producto:</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
@@ -36,23 +36,30 @@
                                         {!! Form::text('name', $p->name, ['class' => 'form-control']) !!}
                                     </div>
                                 </div>
-
-                                <div class="col-md-3">
+                            </div>
+                            <div class="row mt16">
+                                <div class="col-md-6">
                                     <label for="category">Categoria</label>
                                     <div class="input-group">
                                             <span class="input-group-text" id="basic-addon1">
                                                 <i class="far fa-keyboard"></i>
                                             </span>
-                                        {!! Form::select('category', $cats, $p->category_id, ['class' => 'form-select']) !!}
+                                        {!! Form::select('category', $cats, $p->category_id, ['class' => 'form-select' , 'id' => 'category']) !!}
+                                        {!! Form::hidden('subcategory_actual', $p->subcategory_id, ['id' => 'subcategory_actual']) !!}
                                     </div>
                                 </div>
 
-                                <div class="col-md-3">
-                                    <label for="name">Imagen destacada</label>
-                                    <div class="form-file">
-                                        {!! Form::file('img', ['class' => 'form-control', 'id' => 'customFile', 'accept' => 'image/*']) !!}
+                                <div class="col-md-6">
+                                    <label for="subcategory">Subcategoria</label>
+                                    <div class="input-group">
+                                            <span class="input-group-text" id="basic-addon1">
+                                                <i class="far fa-keyboard"></i>
+                                            </span>
+                                        {!! Form::select('subcategory', [], $p->subcategory_id, ['class' => 'form-select', 'id' => 'subcategory']) !!}
                                     </div>
                                 </div>
+
+
                             </div>
 
                             <div class="row mt16">
@@ -120,6 +127,15 @@
                                         {!! Form::text('sku', $p->sku, ['class' => 'form-control', 'step' => 'any']) !!}
                                     </div>
                                 </div>
+
+                                    <div class="col-md-3">
+                                        <label for="name">Imagen destacada</label>
+                                        <div class="form-file">
+                                            {!! Form::file('img', ['class' => 'form-control', 'id' => 'customFile', 'accept' => 'image/*']) !!}
+                                        </div>
+                                    </div>
+
+
                             </div>
 
                             <div class="row mt16">

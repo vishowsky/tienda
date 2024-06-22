@@ -18,7 +18,7 @@
                 </div>
                 <div class="inside">
                     @if(kvfj(Auth::user()->permissions,'category_add'))
-                    {!! Form::open(['url' => '/admin/category/add', 'files' => true]) !!}
+                    {!! Form::open(['url' => '/admin/category/add/'.$module, 'files' => true]) !!}
                     <label for="name">Nombre</label>
                     <div class="input-group">
                             <span class="input-group-text" id="basic-addon1">
@@ -28,12 +28,25 @@
                         {!! Form::text('name',null, ['class'=>'form-control']) !!}
                     </div>
 
+                    <label for="module" class="mt16">Categoria padre</label>
+                    <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1">
+                                <i class="far fa-keyboard"></i>
+                            </span>
+                            <select name="parent" id="" class="form-select">
+                                <option value="0">Sin Categoria</option>
+                                @foreach($cats as $cat)
+                                <option value="{{ $cat->id }}">{{ $cat->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
                     <label for="module" class="mt16">Modulo</label>
                     <div class="input-group">
                             <span class="input-group-text" id="basic-addon1">
                                 <i class="far fa-keyboard"></i>
                             </span>
-                        {!! Form::select('module',getModulesArray(), 0, ['class' => 'form-select']) !!}
+                        {!! Form::select('module',getModulesArray(), $module, ['class' => 'form-select', 'disabled']) !!}
                     </div>
 
                     <label for="icon" class="mt16">Icono</label>
@@ -65,7 +78,7 @@
                             <tr>
                                 <td width="64px"></td>
                                 <td>Nombre</td>
-                                <td width="140px"></td>
+                                <td width="160px"></td>
                             </tr>
                         </thead>
                         <tbody>
@@ -77,6 +90,7 @@
                                     <div class="options">
                                         @if(kvfj(Auth::user()->permissions,'category_edit'))
                                         <a href="{{ url('/admin/category/'.$cat->id.'/edit')}}" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-edit"></i></a>
+                                        <a href="{{ url('/admin/category/'.$cat->id.'/subs')}}" data-toggle="tooltip" data-placement="top" title="Subcategorias"><i class="fas fa-list-ul"></i></a>
                                         @endif
                                         @if(kvfj(Auth::user()->permissions,'category_delete'))
                                         <a href="{{ url('/admin/category/'.$cat->id.'/delete')}}" data-toggle="tooltip" data-placement="top" title="Eliminar"><i class="fas fa-trash-alt"></i></a>
