@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Models\Category;
 use App\Http\Models\Product;
 use App\Http\Models\Pgallery;
-
+use Parsedown;
 use Validator, Str, Config, Image;
 
 class ProductController extends Controller
@@ -285,6 +285,16 @@ class ProductController extends Controller
     if($p->restore()):
         return redirect('/admin/product/'.$p->id.'/edit')->with('message', 'Producto restaurado con exito')->with('typealert', 'success');
             endif;
+   }
+   public function show($id)
+   {
+       $product = Product::findOrFail($id);
+
+       // Convertir Markdown a HTML usando Parsedown
+       $parsedown = new Parsedown();
+       $product->content = $parsedown->text($product->content);
+
+       return view('product.product_single', compact('product'));
    }
 }
 

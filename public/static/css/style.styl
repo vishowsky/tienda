@@ -21,7 +21,8 @@ a
     margin-top 32px
 .mt16
     margin-top 16px
-
+.mt24
+    margin-top 24px
 .form-control
     &:active
     &:hover
@@ -449,11 +450,79 @@ nav
                 color #111111
                 margin-top 4px
 .product_single
+    .btn-success
+        background-color red
+        color white
+        border 0px
+        width 100%
+        &:hover
+            background-color rgb(129, 0, 0)
+    h5.title
+        font-size 1em
+    h2
+        font-size 50px
     background-color #fff
     margin-top 32px
     padding 12px
     border-radius 4px
+    .price
+        font-size 2.3em
+    .category
+        margin-bottom 8px
+        ul
+            list-style none
+            margin 0px
+            overflow hidden
+            padding 0px
+            li
+                display inline-flex
+                margin 0px 6px
+                float left
+                .next
+                    display block
+                    color #666
+                    font-size .7em !important
+                    position relative
+                    margin-top 4px
+                a
+                    color #333
+                    display inline-block
+                    text-decoration none
+                    i
+                        color red
+                    img
+                        display block
+                        height 13px
+                &:first-child
+                    margin-left 0px
 
+    .inside
+        padding 12px
+    .content
+    .before_quantity
+        border-top 1px solid white
+        margin-top 24px
+        padding-top 24px
+    .quantity
+        overflow hidden
+        .amount_action
+            align-items center
+            background-color red
+            display flex
+            border-radius 50%
+            color white
+            justify-content center
+            float left
+            height 32px
+            text-decoration none
+            width 32px
+            &:first-child
+                margin-right 8px
+            &:last-child
+                margin-left 8px
+        .form-control
+            float left
+            width calc(100% - 80px)
 .slick-next
     right 8px !important
 .slick-prev
