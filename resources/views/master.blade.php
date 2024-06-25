@@ -10,6 +10,8 @@
     <meta name="routeName" content="{{ Route::currentRouteName() }}">
     <meta name="currency" content="{{ Config::get('tienda.currency')}}">
     <meta name="auth" content="{{ Auth::check() }}" >
+    @yield('custom_meta')
+
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/09afb5370b.js" crossorigin="anonymous"></script>
 
@@ -80,7 +82,7 @@
                     <a href="{{ url('/') }}" class="nav-link">Inicio</a>
                 </li>
                 <li class=" nav-item">
-                    <a href="{{ url('/') }}" class="nav-link">Tienda</a>
+                    <a href="{{ url('/store') }}" class="nav-link">Tienda</a>
                 </li>
                 <li class=" nav-item">
                     <a href="{{ url('/') }}" class="nav-link">Sobre Nosotros</a>

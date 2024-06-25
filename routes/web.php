@@ -14,6 +14,9 @@
 
 Route::get('/', 'ContentController@getHome')->name('home');
 
+//Route tienda
+Route::get('/store','StoreController@getStore')->name('store');
+
 //Route login
 Route::get('/login', 'ConnectController@getLogin')->name('login');
 //Route login post
@@ -38,9 +41,11 @@ Route::post('/account/edit/password', 'UserController@postAccountPassword')->nam
 Route::post('/account/edit/info', 'UserController@postAccountInfo')->name('account_info_edit');
 
 //modulo productos
-Route::get('/product/{id}/{slug}', 'ProductController@getProduct');
+Route::get('/product/{id}/{slug}', 'ProductController@getProduct')->name('product_single');
 //Route ajax api
 
 Route::get('/js/api/load/products/{section}','ApiJsController@getProductsSection');
 Route::post('/js/api/favorites/add/{object}/{module}','ApiJsController@postFavoriteAdd');
 Route::post('/js/api/load/user/favorites','ApiJsController@postUserFavorites');
+
+Route::post('/js/api/load/product/inventory/{inv}/variants','ApiJsController@postProductInventoryVariants');

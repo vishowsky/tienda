@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Config, Auth;
 use App\Http\Models\Product;
 use App\Http\Models\Favorite;
+use App\Http\Models\Inventory;
+
 class ApiJsController extends Controller
 {
     public function __construct(){
@@ -57,5 +59,9 @@ class ApiJsController extends Controller
             $data = ['status' => 'success' , 'count' => count(collect($query)), 'objects' => $query];
         endif;
         return response()->json($request->input($data));
+    }
+    public function postProductInventoryVariants($id){
+        $query = Inventory::find($id);
+        return response()->json($query->getVariants);
     }
 }

@@ -28,4 +28,14 @@ class Product extends Model
     {
         return $this->hasMany(Pgallery::class, 'product_id', 'id');
     }
+
+    public function getInventory(){
+        return $this->HasMany(Inventory::class,'product_id', 'id')->orderBy('price','Asc');
+
+    }
+
+    public function getPrice(){
+        return $this->hasMany(Inventory::class,'product_id', 'id');
+    }
+
 }

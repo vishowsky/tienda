@@ -12,6 +12,15 @@ a:focus,
   box-shadow: none;
   outline: none;
 }
+.hidden {
+  display: none;
+}
+.pt16 {
+  padding-top: 16px;
+}
+.bt1 {
+  border-top: 1px;
+}
 .pleft0 {
   padding-left: 0px !important;
 }
@@ -510,6 +519,33 @@ nav .navbar-nav li.link-user a:hover {
   margin-top: 32px;
   padding: 12px;
   border-radius: 4px;
+}
+.product_single .variants ul {
+  margin: 0px;
+  padding: 0px;
+}
+.product_single .variants ul li {
+  display: inline-block;
+  margin-bottom: 6px;
+  margin-right: 6px;
+}
+.product_single .variants ul li a {
+  border: 1px solid #f0f0f0;
+  border-radius: 9px;
+  color: #333;
+  display: block;
+  font-size: 0.8em;
+  padding: 8px 16px;
+  font-weight: normal;
+  text-decoration: none;
+}
+.product_single .variants ul li a:hover {
+  background-color: #f00;
+  color: #fff;
+}
+.product_single .variants ul li .active {
+  background-color: #f00;
+  color: #fff;
 }
 .product_single .btn-success {
   background-color: #f00;

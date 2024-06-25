@@ -50,9 +50,9 @@
                         <div class="col-md-6">
                             <label for="subcategory">Subcategoria</label>
                             <div class="input-group">
-                                    <span class="input-group-text" id="basic-addon1">
-                                        <i class="far fa-keyboard"></i>
-                                    </span>
+                                <span class="input-group-text" id="basic-addon1">
+                                    <i class="far fa-keyboard"></i>
+                                </span>
                                 {!! Form::select('subcategory', [], null, ['class' => 'form-select', 'id' => 'subcategory', 'required']) !!}
                             </div>
                         </div>
@@ -60,15 +60,7 @@
                     </div>
 
                     <div class="row mt16">
-                        <div class="col-md-3">
-                            <label for="price">Precio</label>
-                            <div class="input-group">
-                                <span class="input-group-text" id="basic-addon1">
-                                    <i class="far fa-keyboard"></i>
-                                </span>
-                                {!! Form::number('price', null, ['class' => 'form-control', 'min' => '0.00', 'step' => 'any']) !!}
-                            </div>
-                        </div>
+
 
                         <div class="col-md-3">
                             <label for="indiscount">en oferta?</label>
@@ -90,19 +82,6 @@
                             </div>
                         </div>
 
-
-                    </div>
-                    <div class="row mt16">
-                        <div class="col-md-3">
-                            <label for="inventory">Inventario</label>
-                            <div class="input-group">
-                                <span class="input-group-text" id="basic-addon1">
-                                    <i class="far fa-keyboard"></i>
-                                </span>
-                                {!! Form::number('inventory', 0, ['class' => 'form-control', 'min' => '0', 'step' => 'any']) !!}
-                            </div>
-                        </div>
-
                         <div class="col-md-3">
                             <label for="sku">SKU</label>
                             <div class="input-group">
@@ -120,6 +99,7 @@
                             </div>
                         </div>
                     </div>
+
 
                     <div class="row mt16">
                         <div class="col-md-12">

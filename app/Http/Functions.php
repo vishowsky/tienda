@@ -81,7 +81,8 @@ function user_permissions(){
                 'product_delete' => 'Puede eliminar productos',
                 'product_gallery_add' => 'Puede agregar imagenes a los productos',
                 'product_gallery_delete' => 'Puede eliminar imagenes a los productos',
-            ]
+                'product_inventory' => 'Puede administrar el inventario de un producto',
+                ]
         ],
         'categories' => [
             'icon' => '<i class="fa-solid fa-folder"></i>',

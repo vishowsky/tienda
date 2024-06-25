@@ -21,6 +21,15 @@ Route::prefix('/admin')->group(function () {
     Route::get('/product/{id}/edit','Admin\ProductController@getProductEdit')->name('product_edit');
     Route::post('/product/add','Admin\ProductController@postProductAdd')->name('product_add');
     Route::post('/product/{id}/edit','Admin\ProductController@postProductEdit')->name('product_edit');
+    Route::get('/product/{id}/inventory','Admin\ProductController@getProductInventory')->name('product_inventory');
+    Route::post('/product/{id}/inventory','Admin\ProductController@postProductInventory')->name('product_inventory');
+    Route::get('/product/inventory/{id}/edit' , 'Admin\ProductController@getProductInventoryEdit')->name('product_inventory');
+    Route::post('/product/inventory/{id}/edit' , 'Admin\ProductController@postProductInventoryEdit')->name('product_inventory');
+    Route::get('/product/inventory/{id}/delete' , 'Admin\ProductController@getProductInventoryDelete')->name('product_inventory');
+    Route::post('/product/inventory/{id}/variant' , 'Admin\ProductController@postProductInventoryVariantAdd')->name('product_inventory');
+
+    Route::get('/product/variant/{id}/delete' , 'Admin\ProductController@getProductInventoryVariantDelete')->name('product_inventory');
+
 
     Route::get('/product/{id}/delete','Admin\ProductController@getProductDelete')->name('product_delete');
     Route::get('/product/{id}/restore','Admin\ProductController@getProductRestore')->name('product_delete');

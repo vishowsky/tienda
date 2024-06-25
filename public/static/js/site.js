@@ -60,6 +60,15 @@ document.addEventListener('DOMContentLoaded', function (){
         load_products('home');
     }
 
+    if(route == "product_single"){
+        var inventory = document.getElementsByClassName('inventory');
+        for(i=0; i <inventory.length; i++){
+            inventory[i].addEventListener('click', function(e){
+                e.preventDefault();
+                load_product_variants(this.getAttribute('data-inventory-id'));
+            }
+        );}
+        }
 });
 
 function load_products(section){
@@ -151,5 +160,50 @@ function add_to_favorites(object, module){
         }
     }
 
+}
+function load_product_variants(inventory_id){
+    document.getElementById('variants_div').style.display = 'none';
+    document.getElementById('variants').innerHTML = "";
+    document.getElementById('field_variant').value = null;
+    var inventory_list = document.getElementsByClassName('inventory');
+    for(i=0; i < inventory_list.length; i++){
+        inventory_list[i].classList.remove('active')
+    }
+    var product_id = document.getElementsByName('product_id')[0].getAttribute('content');
+    var inv = inventory_id;
+    document.getElementById('field_inventory').value = inv;
+    document.getElementById('inventory_'+inv).classList.add('active');
 
+    var url = base + '/js/api/load/product/inventory/'+inv+'/variants';
+    http.open('POST',url,true);
+    http.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+    http.send();
+    http.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+            var data = this.responseText;
+            data = JSON.parse(data);
+            if(data.length > 0){
+                document.getElementById('variants_div').style.display = 'block';
+                data.forEach(function(element, index){
+                    variant = '';
+                    variant += "<li>";
+                        variant += '<a href="#" class="variant" onclick="variants_active_remove(); document.getElementById(\'field_variant\').value = ' + element.id + '; this.classList.add(\'active\'); return false;">';
+                            variant += element.name;
+                        variant += "</a>";
+                    variant += '</li>';
+                    document.getElementById('variants').innerHTML += variant;
+                });
+            }        console.log(data);
+
+        }
+    }
+
+}
+
+function variants_active_remove(){
+    var li_variants = document.getElementsByClassName('variant');
+    for(i=0; i < li_variants.length; i++){
+        li_variants[i].classList.remove('active')
+
+    }
 }

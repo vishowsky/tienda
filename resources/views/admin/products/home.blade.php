@@ -102,12 +102,19 @@
                                     @endif
                                 </td>
                                 <td>{{ $p->sku }}</td>
-                                <td>{{ $p->price }}</td>
                                 <td>
+
+                                    {{ config('tienda.currency') }}{{ $p->price }}</td>
+
+                                    <td>
                                     <div class="options">
                                         @if (kvfj(Auth::user()->permissions, 'product_edit'))
-                                            <a href="{{ url('/admin/product/' . $p->id . '/edit') }}" data-toggle="tooltip"
+                                            <a href="{{ url('/admin/product/' .$p->id . '/edit') }}" data-toggle="tooltip"
                                                 data-placement="top" title="Editar"><i class="fas fa-edit"></i></a>
+                                        @endif
+                                        @if (kvfj(Auth::user()->permissions, 'product_inventory'))
+                                        <a href="{{ url('/admin/product/'.$p->id.'/inventory') }}"  data-toggle="tooltip"
+                                                data-placement="top" title="Inventario"><i class="fas fa-box"></i></a>
                                         @endif
                                         @if (kvfj(Auth::user()->permissions, 'product_delete'))
                                             @if (is_null($p->deleted_at))
