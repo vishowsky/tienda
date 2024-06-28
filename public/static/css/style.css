@@ -659,6 +659,63 @@ nav .navbar-nav li.link-user a:hover {
   box-shadow: none !important;
   outline: none !important;
 }
+.store {
+  margin-bottom: 24px;
+}
+.store .categories_list {
+  border-radius: 8px;
+  background-color: #fff;
+}
+.store .categories_list h2.title {
+  border-radius: 8px 8px 0px 0px;
+  background-color: #222;
+  color: #fff;
+  padding: 12px;
+  margin: 0px;
+  display: block;
+  font-size: 1.2em;
+  background-color: #222;
+}
+.store .categories_list ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+.store .categories_list ul li {
+  border-bottom: 1px solid #d6d6d6;
+}
+.store .categories_list ul li:last-child {
+  border: 0px;
+}
+.store .categories_list ul li:last-child a {
+  border-radius: 0px 0px 8px 8px;
+}
+.store .categories_list ul li a {
+  display: block;
+  text-decoration: none;
+  font-size: 1em;
+  color: #000;
+  padding: 8px 12px;
+}
+.store .categories_list ul li a img {
+  margin-right: 8px;
+  width: 36px !important;
+}
+.store .categories_list ul li a:hover {
+  background-color: #f00;
+  color: #fff;
+}
+.store .store_white {
+  background-color: #fff;
+  padding: 24px;
+  border-radius: 8px;
+}
+.store .store_white h2.home_title {
+  font-weight: bold;
+  margin-top: 0px;
+  margin-bottom: 24px;
+  font-size: 1.2em !important;
+}
 @media only screen and (max-width: 600px) {
   nav .navbar-nav {
     overflow: hidden;

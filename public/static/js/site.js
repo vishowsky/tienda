@@ -60,6 +60,10 @@ document.addEventListener('DOMContentLoaded', function (){
         load_products('home');
     }
 
+    if(route == "store"){
+        load_products('store');
+    }
+
     if(route == "product_single"){
         var inventory = document.getElementsByClassName('inventory');
         for(i=0; i <inventory.length; i++){

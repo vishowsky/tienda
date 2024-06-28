@@ -16,6 +16,7 @@ Route::get('/', 'ContentController@getHome')->name('home');
 
 //Route tienda
 Route::get('/store','StoreController@getStore')->name('store');
+Route::get('/store/category/{id}/{slug}','StoreController@getCategory')->name('store_category');
 
 //Route login
 Route::get('/login', 'ConnectController@getLogin')->name('login');
