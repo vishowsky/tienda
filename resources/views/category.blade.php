@@ -1,7 +1,9 @@
 @extends('master')
 
 @section('title', 'Tienda - '.$category->name)
-
+@section('custom_meta')
+<meta name="category_id" content="{{ $category->id }}">
+@stop
 @section('content')
     <div class="store mt32">
         <div class="row">

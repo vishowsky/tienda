@@ -161,6 +161,7 @@ class ProductController extends Controller
             $product->content = $request->input("content");
 
             if ($product->save()):
+
                 $this->getUpdateMinPrice($product->id);
                 if ($request->hasFile('img')):
                     $fl = $request->img->storeAs($path, $filename, 'uploads');
@@ -199,10 +200,8 @@ class ProductController extends Controller
                 $fileExt = trim($request->file('file_image')->getClientOriginalExtension());
                 $upload_path = Config::get('filesystems.disks.uploads.root');
                 $name = Str::slug(str_replace($fileExt, '', $request->file('file_image')->getClientOriginalName()));
-
                 $filename = rand(1, 99999) . '-' . $name . '.' . $fileExt;
                 $final_file = $upload_path . '/' . $path . '/' . $filename;
-
                 $g = new Pgallery;
                 $g->product_id = $id;
                 $g->file_path = date('Y-m-d');
@@ -405,7 +404,7 @@ public function postProductInventory( Request $request ,$id){
         public function getUpdateMinPrice($id){
             $product = Product::find($id);
             $price = $product->getPrice->min('price');
-            $product->price = $price;
+            $product->price = $price !== null ? $price : 0;
             $product->save();
         }
 

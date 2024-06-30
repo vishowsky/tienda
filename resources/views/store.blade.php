@@ -2,6 +2,8 @@
 
 @section('title', 'Tienda')
 
+@section('custom_meta')
+
 @section('content')
     <div class="store mt32">
         <div class="row">

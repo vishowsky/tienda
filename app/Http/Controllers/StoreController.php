@@ -13,9 +13,9 @@ class StoreController extends Controller
     }
 
     public function getCategory($id, $slug){
-        $categoriy = Category::findOrFail($id);
+        $category = Category::findOrFail($id);
         $categories = Category::where('module', '0')->where('parent', $id)->orderBy('order', 'Asc')->get();
-        $data = ['categories' => $categories, 'category' => $categoriy];
+        $data = ['categories' => $categories, 'category' => $category];
         return view('category', $data);
     }
 }
