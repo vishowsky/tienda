@@ -23,7 +23,23 @@
                 </div>
             </div>
             <div class="col-md-9">
-                <div class="store_white">
+                <div class="home_action_bar nomargen shadow">
+                    <div class="row">
+
+                        <div class="col-md-9">
+                            {!! Form::open(['url' => '/search']) !!}
+                            <div class="input-group">
+
+                                <i class="fas fa-search"></i>
+
+                                {!! Form::text('search_query', null, ['class' => 'form-control', 'required']) !!}
+                                <button class="btn " type="submit" id="button-addon2">Buscar</button>
+                            </div>
+                            {!! Form::close() !!}
+                        </div>
+                    </div>
+                </div>
+                <div class="store_white mt32">
                     <section>
                         <h2 class="home_title mt32">
                             Ultimos productos

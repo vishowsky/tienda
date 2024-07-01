@@ -12,6 +12,9 @@ a:focus,
   box-shadow: none;
   outline: none;
 }
+.nomargen {
+  margin: 0px !important;
+}
 .hidden {
   display: none;
 }

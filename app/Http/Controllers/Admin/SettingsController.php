@@ -20,6 +20,7 @@ class SettingsController extends Controller
         return view('admin.settings.settings');
     }
     public function postHome(Request $request){
+        $app_project_path = 'c:/www/tienda/config';
         if (!file_exists(config_path().'/tienda.php')):
             fopen(config_path().'/tienda.php', 'w');
 
@@ -37,6 +38,7 @@ class SettingsController extends Controller
         fwrite($file, ']'.PHP_EOL);
         fwrite($file, '?>'.PHP_EOL);
         fclose($file);
+        copy(config_path().'/tienda.php', $app_project_path.'/tienda.php');
 
         return back()->with('message', 'Cambios hechos con exito')->with('typealert', 'success');
 

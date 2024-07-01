@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Http\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Models\Product;
+
 
 class StoreController extends Controller
 {
@@ -17,5 +19,11 @@ class StoreController extends Controller
         $categories = Category::where('module', '0')->where('parent', $id)->orderBy('order', 'Asc')->get();
         $data = ['categories' => $categories, 'category' => $category];
         return view('category', $data);
+    }
+
+    public function postSearch(Request $request){
+        $products = Product::where('status' , 1)->where('name', 'LIKE', '%'.$request->input('search_query').'%')->orderBy('id','Asc')->get();
+        $data = ['query' => $request->input('search_query'),'products'=> $products];
+        return view('search', $data);
     }
 }

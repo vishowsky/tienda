@@ -68,6 +68,10 @@ document.addEventListener('DOMContentLoaded', function (){
         load_products('store_category');
     }
 
+    if(route == "search"){
+        load_products('store_category');
+    }
+
     if(route == "product_single"){
         var inventory = document.getElementsByClassName('inventory');
         for(i=0; i <inventory.length; i++){

@@ -1,6 +1,6 @@
 <?php 
 return [
-'name' => 'HolaMundo',
+'name' => 'Test 2',
 'currency' => '$',
 'store_phone' => '90091537',
 'map' => 'Curico',

@@ -1,49 +1,45 @@
 @extends('master')
 
-@section('title' , 'inicio')
+@section('title', 'inicio')
 
 @section('content')
-<section >
+    <section>
         <div class="home_action_bar shadow">
-        <div class="row">
-            <div class="col-md-3">
-                <div class="categories" style="z-index: 9999">
-                    <a href="">Categorias</a>
-                    <ul class="shadow">
-                        @foreach ($categories as $category)
-                            <li>
-
-                                <a href="{{ url('/store/category/'.$category->id.'/'.$category->slug) }}">
-                                    <img src="{{ url('/uploads/'.$category->file_path.'/'.$category->icono) }}" alt="">
-                                    {{ $category->name}}</a>
-                            </li>
-                        @endforeach
-                    </ul>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="categories" style="z-index: 9999">
+                        <a href="">Categorias </a>
+                        <ul class="shadow">
+                            @foreach ($categories as $category)
+                                <li>
+                                    <a href="{{ url('/store/category/' . $category->id . '/' . $category->slug) }}">
+                                        <img src="{{ url('/uploads/' . $category->file_path . '/' . $category->icono) }}" alt="">{{ $category->name }}</a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
                 </div>
-
-            </div>
-            <div class="col-md-9">
-                {!! Form::open(['url' => '/search']) !!}
-                <div class="input-group">
+                <div class="col-md-9">
+                    {!! Form::open(['url' => '/search']) !!}
+                    <div class="input-group">
 
                         <i class="fas fa-search"></i>
 
-                    {!! Form::text('search_query', null, ['class' => 'form-control', 'required']) !!}
-                    <button class="btn " type="submit" id="button-addon2">Buscar</button>
+                        {!! Form::text('search_query', null, ['class' => 'form-control', 'required']) !!}
+                        <button class="btn " type="submit" id="button-addon2">Buscar</button>
+                    </div>
+                    {!! Form::close() !!}
                 </div>
-                {!! Form::close() !!}
             </div>
         </div>
-    </div>
-</section>
-<section>
-    @include('components/sliders_home')
-</section>
-<section>
+    </section>
+    <section>
+        @include('components/sliders_home')
+    </section>
+    <section>
         <div id="products_list" class="products_list"></div>
         <div class="load_more_products">
             <a id="load_more_products" href="">Cargar mas productos</a>
         </div>
-</section>
+    </section>
 @endsection
-
